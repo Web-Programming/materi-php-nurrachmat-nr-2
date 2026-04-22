@@ -70,3 +70,24 @@ Route::delete('/hapus/{id}', function($id){
 Route::get('/test-method', function(){
     return view('test_method');
 });
+
+//Manampilkan halaman profil
+Route::get('/profil', function(){
+    return view("profile");
+});
+
+//Gunakan . untuk memisahkan folder dgn view
+// Route::get('/detailproduk', function(){
+//     return view("produk.detail");
+// });
+
+//mengirim data ke view
+Route::get('/detailproduk/{name}', function($name){
+    return view("produk.detail", 
+        ['product_name' => $name, 
+        'id'=> 101, 
+        'color' => 'Silver',
+        'stock' => 12
+        ]
+    );
+});
